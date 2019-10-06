@@ -105,7 +105,7 @@ if (player.crashWith(enemies)) {
     if(enemies.x <= -20){
 	    score.number += 1;
 	    enemies.x = 370;
-	    enemies.y = Math.floor(Math.random() * 150) + 1
+	    enemies.y = Math.floor(Math.random() * 140) + 1
     }
     
 }}
