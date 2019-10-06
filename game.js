@@ -1,6 +1,16 @@
 var enemies;
 var player;
 var myScore;
+
+			var objImage= null;
+			function init(){
+				objImage=document.getElementById("image1");				
+				objImage.style.position='relative';
+				objImage.style.left='0px';
+				objImage.style.top='0px';
+			}
+      
+			window.onload=init;
 function startGame() {
     myGameArea.start();
     player = new component(20, 20, "red", 10, 90);
@@ -8,7 +18,16 @@ function startGame() {
      myScore = new component("20px", "Consolas", "black", 200, 40, "text");
     score.number = 0;
 }
+function show_image(src, width, height, alt) {
+    var img = document.createElement("img");
+    img.src = src;
+    img.width = width;
+    img.height = height;
+    img.alt = alt;
 
+    // This next line will just add it to the <body> tag
+    document.body.appendChild(img);
+}
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
@@ -35,6 +54,10 @@ var myGameArea = {
 var score = new component(0,0,0,0,0,0,1)
 function component(width, height, color, x, y, type, number) {
  this.type = type;
+ if(this.type == 'image') {
+ update(); 
+ 
+ }
     this.gamearea = myGameArea;
     this.number = number + 1;
     this.width = width;
@@ -46,7 +69,12 @@ function component(width, height, color, x, y, type, number) {
     this.update = function() {
         ctx = myGameArea.context;
         ctx.fillStyle = color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+         if (color=="red") {
+         ctx.fillRect(this.x, this.y, this.width, this.height);
+	 			} else {
+         objImage.style.left=-600+this.x+"px";
+        objImage.style.top=-150+this.y+"px";
+         }
         if (this.type == "text") {
       ctx.font = this.width + " " + this.height;
       ctx.fillStyle = color;
@@ -105,32 +133,7 @@ if (player.crashWith(enemies)) {
     if(enemies.x <= -20){
 	    score.number += 1;
 	    enemies.x = 370;
-	    enemies.y = Math.floor(Math.random() * 100) + 1
+	    enemies.y = Math.floor(Math.random() * 140) + 1
     }
     
 }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
