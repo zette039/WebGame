@@ -137,3 +137,19 @@ if (player.crashWith(enemies)) {
     }
     
 }}
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 9021b9f9d6458bd26e6020ff56031f10ab5e250e
