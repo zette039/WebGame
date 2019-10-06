@@ -1,9 +1,12 @@
 var enemies;
 var player;
+var myScore;
 function startGame() {
     myGameArea.start();
     player = new component(20, 20, "red", 10, 90);
     enemies = new component(20, 60, "green", 370, 20);
+     myScore = new component("20px", "Consolas", "black", 200, 40, "text");
+    score.number = 0;
 }
 
 var myGameArea = {
@@ -29,9 +32,11 @@ var myGameArea = {
     clearInterval(this.interval);
   }
 }
-
-function component(width, height, color, x, y) {
+var score = new component(0,0,0,0,0,0,1)
+function component(width, height, color, x, y, type, number) {
+ this.type = type;
     this.gamearea = myGameArea;
+    this.number = number + 1;
     this.width = width;
     this.height = height;
     this.speedX = 0;
@@ -42,7 +47,12 @@ function component(width, height, color, x, y) {
         ctx = myGameArea.context;
         ctx.fillStyle = color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
-    }
+        if (this.type == "text") {
+      ctx.font = this.width + " " + this.height;
+      ctx.fillStyle = color;
+      ctx.fillText(this.text, this.x, this.y);
+    } else {
+    }}
     this.newPos = function() {
         this.x += this.speedX;
         this.y += this.speedY;        
@@ -66,8 +76,7 @@ function component(width, height, color, x, y) {
     return crash;
   }
 }
-
-
+ 
 
 
 
@@ -76,25 +85,37 @@ if (player.crashWith(enemies)) {
     myGameArea.stop();
   } else {
     myGameArea.clear();
+    myGameArea.frameNo += 1;
     player.speedX = 0;
     player.speedY = 0;  
+ 
     
-    
-    if (myGameArea.keys && myGameArea.keys[37] && player.x > 10) {player.speedX = -5; }
+    if (myGameArea.keys && myGameArea.keys[37] && player.x > 10) {player.speedX = -5;}
     if (myGameArea.keys && myGameArea.keys[39]) {player.speedX = 5; }
     if (myGameArea.keys && myGameArea.keys[38]) {player.speedY = -5; }
     if (myGameArea.keys && myGameArea.keys[40]) {player.speedY = 5; }
     player.newPos();    
     player.update();
+      myScore.text = "SCORE: " + score.number;
+      score.update();
+  myScore.update();
     enemies.newPos();
     enemies.update();
-    enemies.x += -7;
+    enemies.x += -10;
     if(enemies.x <= -20){
-    enemies.x = 370;
-    enemies.y = Math.floor(Math.random() * 100) + 1
+	    score.number += 1;
+	    enemies.x = 370;
+	    enemies.y = Math.floor(Math.random() * 100) + 1
     }
     
 }}
+
+
+
+
+
+
+
 
 
 
