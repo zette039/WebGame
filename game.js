@@ -137,9 +137,6 @@ if (player.crashWith(enemies)) {
     }
     
 }}
-<<<<<<< HEAD
-=======
-
 
 
 
