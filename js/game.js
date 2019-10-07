@@ -173,16 +173,19 @@ if (player.crashWith(e1)) {
     }
     
     if(e2.x <= -49.6){
+	    score.number += 1;
 	    e2.x = 1000;
 	    e2.y = Math.floor(Math.random() * 250.4) + 1
     }
     
     if(e3.x <= -49.6){
+	    score.number += 1;
 	    e3.x = 1000;
 	    e3.y = Math.floor(Math.random() * 250.4) + 1
     }
     
     if(e4.x <= -49.6){
+	    score.number += 1;
 	    e4.x = 1000;
 	    e4.y = Math.floor(Math.random() * 250.4) + 1
     }
