@@ -5,14 +5,14 @@ function startGame() {
     myGameArea.start();
     player = new component(80, 39.6, 'images/car.png', 10, 90, 'image');
     enemies = new component(90, 49.6, "images/enemy.png", 370, 20, 'image');
-     myScore = new component("20px", "Consolas", "black", 200, 40, "text");
+     myScore = new component("20px", "Consolas", "black", 0, 40, "text");
     score.number = 0;
 }
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 400;
+        this.canvas.width = 550;
         this.canvas.height = 200;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
