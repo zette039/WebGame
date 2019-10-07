@@ -4,7 +4,7 @@ var myScore;
 function startGame() {
     myGameArea.start();
     player = new component(80, 39.6, 'images/car.png', 10, 90, 'image');
-    enemies = new component(90, 49.6, "images/enemy.png", 700, 20, 'image');
+    enemies = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image');
      myScore = new component("20px", "Consolas", "black", 0, 40, "text");
     score.number = 0;
 }
@@ -111,10 +111,10 @@ if (player.crashWith(enemies)) {
   myScore.update();
     enemies.newPos();
     enemies.update();
-    enemies.x += -10;
-    if(enemies.x <= -20){
+    enemies.x += -15;
+    if(enemies.x <= -49.6){
 	    score.number += 1;
-	    enemies.x = 600;
+	    enemies.x = 1000;
 	    enemies.y = Math.floor(Math.random() * 140) + 1
     }
     
