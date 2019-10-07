@@ -119,7 +119,7 @@ function component(width, height, color, x, y, type, number) {
 
 
 function updateGameArea() {
-if (player.crashWith(enemies)) {
+if (player.crashWith(e1, e2, e3, e4)) {
     myGameArea.stop();
   } else {
     myGameArea.clear();
