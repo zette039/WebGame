@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+
+socket= new WebSocket('ws://localhost:7778');
+socket.onopen= function() {
+    socket.send('hello');
+};
+socket.onmessage= function(s) {
+    alert('got reply '+s);
+};
+</script>
+
+</body>

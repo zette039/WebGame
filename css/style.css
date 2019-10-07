@@ -1,0 +1,10 @@
+canvas {
+  border: 5px solid navy;
+  background-color: lightblue;
+}
+
+html, body {
+  width:  100%;
+  height: 100%;
+  margin: 0;
+}
