@@ -28,11 +28,11 @@ var player;
 var myScore;
 function startGame() {
     myGameArea.start();
-    player = new component(80, 39.6, 'images/car.png', 10, 130.2, 'image' );
-    e1 = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image );
-    e2 = new component(90, 49.6, "images/enemy.png", 1000, 100, 'image );
-    e3 = new component(90, 49.6, "images/enemy.png", 1000, 200, 'image );
-    e4 = new component(90, 49.6, "images/enemy.png", 1000, 250.4, 'image );
+    player = new component(80, 39.6, 'images/car.png, 10, 130.2, 'image');
+    e1 = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image' );
+    e2 = new component(90, 49.6, "images/enemy.png", 1000, 100, 'image' );
+    e3 = new component(90, 49.6, "images/enemy.png", 1000, 200, 'image' );
+    e4 = new component(90, 49.6, "images/enemy.png", 1000, 250.4, 'image' );
      myScore = new component("20px", "Consolas", "black", 0, 40, "text");
     score.number = 0;
 }
@@ -48,10 +48,10 @@ var myGameArea = {
         window.addEventListener('keydown', function (e) {
             myGameArea.keys = (myGameArea.keys || []);
             myGameArea.keys[e.keyCode] = (e.type == "keydown");
-        })
+        });
         window.addEventListener('keyup', function (e) {
             myGameArea.keys[e.keyCode] = (e.type == "keydown");            
-        })
+        });
     }, 
     clear : function(){
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -77,25 +77,30 @@ function component(width, height, color, x, y, type, number) {
     this.y = y;    
     this.update = function() {
         ctx = myGameArea.context;
-         if (type == "image") {
-      ctx.drawImage(this.image,
-        this.x,
-        this.y,
-        this.width, this.height);
-    } else {
-        ctx.fillStyle = color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);}
+        
+        if (type == "image") {
+      		ctx.drawImage(this.image,
+          this.x,
+        	this.y,
+        	this.width, this.height);
+    		} 
+    		else {
+    		ctx.fillStyle = color;
+      	ctx.fillRect(this.x, this.y, this.width, this.height);
+    		}
+        
         if (this.type == "text") {
-      ctx.font = this.width + " " + this.height;
-      ctx.fillStyle = color;
-      ctx.fillText(this.text, this.x, this.y);
-    } else {
-    }}
+      		ctx.font = this.width + " " + this.height;
+      		ctx.fillStyle = color;
+      		ctx.fillText(this.text, this.x, this.y);
+    		} 
+     
+    }
     this.newPos = function() {
         this.x += this.speedX;
         this.y += this.speedY;        
     }  
-     this.crashWith = function(otherobj) {
+    this.crashWith = function(otherobj) {
     var myleft = this.x;
     var myright = this.x + (this.width);
     var mytop = this.y;
@@ -114,9 +119,6 @@ function component(width, height, color, x, y, type, number) {
     return crash;
   }
 }
- 
-
-
 
 function updateGameArea() {
 if (player.crashWith(e1)) {
@@ -127,7 +129,8 @@ if (player.crashWith(e1)) {
     myGameArea.stop();}
     if (player.crashWith(e4)) {
     myGameArea.stop();
-  } else {
+ } 
+ else {
     myGameArea.clear();
     myGameArea.frameNo += 1;
     player.speedX = 0;
@@ -140,48 +143,48 @@ if (player.crashWith(e1)) {
     if (myGameArea.keys && myGameArea.keys[40] && player.y < 250.4) {player.speedY = 5; }
     player.newPos();    
     player.update();
-      myScore.text = "SCORE: " + score.number;
-      score.update();
-  myScore.update();
-   if(enemy1 == true){
-    e1.update();
-    e1.x += -15;
+    myScore.text = "SCORE: " + score.number;
+    score.update();
+ 		myScore.update();
+   	if(enemy1 == true){
+   		e1.update();
+    	e1.x += -15;
     }
     
     if(enemy2 == true){
-    e2.update();
-    e2.x += -15;
+    	e2.update();
+    	e2.x += -15;
     }
     
     if(enemy3 == true){
-    e3.update();
-    e3.x += -15;
+    	e3.update();
+    	e3.x += -15;
     }
    
-   if(enemy4 == true){
-    e4.update();
-    e4.x += -15;
+   	if(enemy4 == true){
+    	e4.update();
+    	e4.x += -15;
     }
    
     if(e1.x <= -49.6){
-    score.number += 1;
+    	score.number += 1;
 	    e1.x = 1000;
 	    e1.y = Math.floor(Math.random() * 250.4) + 1
     }
     
-        if(e2.x <= -49.6){
+    if(e2.x <= -49.6){
 	    e2.x = 1000;
 	    e2.y = Math.floor(Math.random() * 250.4) + 1
     }
     
-        if(e3.x <= -49.6){
+    if(e3.x <= -49.6){
 	    e3.x = 1000;
 	    e3.y = Math.floor(Math.random() * 250.4) + 1
     }
     
-        if(e4.x <= -49.6){
+    if(e4.x <= -49.6){
 	    e4.x = 1000;
 	    e4.y = Math.floor(Math.random() * 250.4) + 1
     }
-    
-}}
+ }
+}
