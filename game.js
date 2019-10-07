@@ -111,7 +111,7 @@ if (player.crashWith(enemies)) {
   myScore.update();
     enemies.newPos();
     enemies.update();
-    enemies.x += -15;
+    enemies.x += -15-(0.35*myScore);
     if(enemies.x <= -49.6){
 	    score.number += 1;
 	    enemies.x = 1000;
