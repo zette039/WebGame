@@ -12,7 +12,7 @@ function startGame() {
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 700;
+        this.canvas.width = 600;
         this.canvas.height = 200;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
@@ -114,7 +114,7 @@ if (player.crashWith(enemies)) {
     enemies.x += -10;
     if(enemies.x <= -20){
 	    score.number += 1;
-	    enemies.x = 700;
+	    enemies.x = 600;
 	    enemies.y = Math.floor(Math.random() * 140) + 1
     }
     
