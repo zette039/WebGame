@@ -103,7 +103,7 @@ if (player.crashWith(enemies)) {
     if (myGameArea.keys && myGameArea.keys[37] && player.x > 10) {player.speedX = -5;}
     if (myGameArea.keys && myGameArea.keys[39] && player.x < 370) {player.speedX = 5; }
     if (myGameArea.keys && myGameArea.keys[38] && player.y > 10) {player.speedY = -5; }
-    if (myGameArea.keys && myGameArea.keys[40] && player.y < 150.4) {player.speedY = 5; }
+    if (myGameArea.keys && myGameArea.keys[40] && player.y < 170) {player.speedY = 5; }
     player.newPos();    
     player.update();
       myScore.text = "SCORE: " + score.number;
