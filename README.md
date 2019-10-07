@@ -1,1 +1,1 @@
-# get pranked noob there is nothing to read
+# Let's keep the code friendly
