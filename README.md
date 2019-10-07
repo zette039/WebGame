@@ -1,1 +1,2 @@
-# Let's keep the code friendly
+# View Active Game
+- [LINK](https://zzcat.github.io/WebGame/)
