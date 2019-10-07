@@ -28,11 +28,11 @@ var player;
 var myScore;
 function startGame() {
     myGameArea.start();
-    player = new component(80, 39.6, 'red', 10, 130.2 );
-    e1 = new component(90, 49.6, "green", 1000, 20, );
-    e2 = new component(90, 49.6, "green", 1000, 100 );
-    e3 = new component(90, 49.6, "green", 1000, 200 );
-    e4 = new component(90, 49.6, "green", 1000, 250.4 );
+    player = new component(80, 39.6, 'images/car.png', 10, 130.2, 'image' );
+    e1 = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image );
+    e2 = new component(90, 49.6, "images/enemy.png", 1000, 100, 'image );
+    e3 = new component(90, 49.6, "images/enemy.png", 1000, 200, 'image );
+    e4 = new component(90, 49.6, "images/enemy.png", 1000, 250.4, 'image );
      myScore = new component("20px", "Consolas", "black", 0, 40, "text");
     score.number = 0;
 }
@@ -119,7 +119,13 @@ function component(width, height, color, x, y, type, number) {
 
 
 function updateGameArea() {
-if (player.crashWith(e1, e2, e3, e4)) {
+if (player.crashWith(e1)) {
+    myGameArea.stop();}
+    if (player.crashWith(e2)) {
+    myGameArea.stop();}
+    if (player.crashWith(e3)) {
+    myGameArea.stop();}
+    if (player.crashWith(e4)) {
     myGameArea.stop();
   } else {
     myGameArea.clear();
