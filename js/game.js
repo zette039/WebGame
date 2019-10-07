@@ -32,7 +32,7 @@ function startGame() {
     e1 = new component(90, 49.6, "green", 1000, 20, );
     e2 = new component(90, 49.6, "green", 1000, 100 );
     e3 = new component(90, 49.6, "green", 1000, 200 );
-    e4 = new component(90, 49.6, "green", 1000, 250.4 ');
+    e4 = new component(90, 49.6, "green", 1000, 250.4 );
      myScore = new component("20px", "Consolas", "black", 0, 40, "text");
     score.number = 0;
 }
