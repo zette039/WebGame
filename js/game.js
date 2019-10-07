@@ -114,33 +114,32 @@ function component(width, height, color, x, y, type, number) {
 
 
 function updateGameArea() {
-if (player.crashWith(enemies)) {
+ if (player.crashWith(enemies)) {
   myGame.stop();
  } else {
   myGame.clear();
   myGame.frameNo += 1;
   player.speedX = 0;
   player.speedY = 0; 
-
   if (myGame.keys && myGame.keys[37] && player.x > 10) {player.speedX = -5;}
   if (myGame.keys && myGame.keys[39] && player.x < 370) {player.speedX = 5; }
   if (myGame.keys && myGame.keys[38] && player.y > 10) {player.speedY = -5; }
   if (myGame.keys && myGame.keys[40] && player.y < 250.4) {player.speedY = 5; }
   player.newPos();  
   player.update();
-   myScore.text = "SCORE: " + score.number;
-   score.update();
- myScore.update();
+  myScore.text = "SCORE: " + score.number;
+  score.update();
+  myScore.update();
   enemies.newPos();
   enemies.update();
   enemies.x += -15;
   if(enemies.x <= -49.6){
-	  score.number += 1;
-	  enemies.x = 1000;
-	  enemies.y = Math.floor(Math.random() * 250.4) + 1
+   score.number += 1;
+   enemies.x = 1000;
+   enemies.y = Math.floor(Math.random() * 250.4) + 1
   }
-  
-}}
+ }
+}
 
 
 
