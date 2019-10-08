@@ -66,6 +66,7 @@ var myGameArea = {
 	  e = true;
 	  explosion.x = player.x;
           explosion.y = player.y;
+	  
   }
 }
 var score = new component(0,0,0,0,0,0,1)
@@ -130,12 +131,16 @@ function component(width, height, color, x, y, type, number) {
 
 function updateGameArea() {
 if (player.crashWith(e1)) {
+	explosion.update();
     myGameArea.stop();}
     if (player.crashWith(e2)) {
+	    explosion.update();
     myGameArea.stop();}
     if (player.crashWith(e3)) {
+	    explosion.update();
     myGameArea.stop();}
     if (player.crashWith(e4)) {
+	    explosion.update();
     myGameArea.stop();
  } 
  else {
@@ -196,9 +201,7 @@ if (player.crashWith(e1)) {
 	    score.number += 1;
 	    e4.x = 1000;
 	    e4.y = Math.floor(Math.random() * 250.4) + 1
-    if(e == true){
-	    explosion.update();
-    }
+   
     }
  }
 }
