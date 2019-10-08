@@ -154,16 +154,16 @@ if (player.crashWith(e1)) {
     if (player.crashWith(e4)) {
 	
     setTimeout(myGameArea.stop(), 5);}
- } 
- else {
+ 
+ else ;{
     myGameArea.clear();
     myGameArea.frameNo += 1;
     player.speedX = 0;
     player.speedY = 0;  
  
     
-    if (myGameArea.keys && myGameArea.keys[37] && player.x > 10) {player.speedX = 10;}
-    if (myGameArea.keys && myGameArea.keys[39] && player.x < 370) {player.speedX = 10; }
+    
+    
     if (myGameArea.keys && myGameArea.keys[38] && player.y > 10) {player.speedY = -10; }
     if (myGameArea.keys && myGameArea.keys[40] && player.y < 250.4) {player.speedY = 10; }
     player.newPos();    
@@ -217,5 +217,5 @@ if (player.crashWith(e1)) {
     }
  
     
- 
+ }
 }
