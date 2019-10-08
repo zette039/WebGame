@@ -215,7 +215,7 @@ if (player.crashWith(e1)) {
 	    e4.y = Math.floor(Math.random() * 250.4) + 1
    
     }
- }
+ 
     
- }
+ 
 }
