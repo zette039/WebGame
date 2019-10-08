@@ -23,11 +23,11 @@ enemy2 = true;
 enemy3 = true;
 enemy4 = true;
 }
-
+var car;
 var myScore;
 function startGame() {
     myGameArea.start();
-	new component(player.x, player.y, 'images/explosion.png', 100, 80, 'image');
+	new component(0, 0, 'images/explosion.png', 100, 80, 'image');
     playeyer = new component(80, 39.6, 'images/car.png', 10, 130.2, 'image');
     e1 = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image' );
     e2 = new component(90, 49.6, "images/enemy.png", 1000, 100, 'image' );
@@ -123,7 +123,8 @@ function component(width, height, color, x, y, type, number) {
     return crash;
   }
 }
-
+explosion.x = player.x;
+explosion.y = player.y;
 function updateGameArea() {
 if (player.crashWith(e1)) {
     myGameArea.stop();}
