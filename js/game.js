@@ -216,4 +216,6 @@ if (player.crashWith(e1)) {
    
     }
  }
+    
+ }
 }
