@@ -132,19 +132,35 @@ function component(width, height, color, x, y, type, number) {
 function updateGameArea() {
 if (player.crashWith(e1)) {
 	 setTimeout(myGameArea.stop(), 500);
-	explosion.update();}
+	 player.image = 'images/explosion.png'
+	 ctx.drawImage(player.image,
+          player.x,
+        	player.y,
+        	explosion.width, explosion.height);}
    
     if (player.crashWith(e2)) {
 	    setTimeout(myGameArea.stop(), 500);
-	    explosion.update();}
+	    player.image = 'images/explosion.png'
+	 ctx.drawImage(player.image,
+          player.x,
+        	player.y,
+        	explosion.width, explosion.height);}
     
     if (player.crashWith(e3)) {
 	    setTimeout(myGameArea.stop(), 500);
-	    explosion.update();}
+	    player.image = 'images/explosion.png'
+	 ctx.drawImage(player.image,
+          player.x,
+        	player.y,
+        	explosion.width, explosion.height);}
    
     if (player.crashWith(e4)) {
 	    setTimeout(myGameArea.stop(), 500);
-	    explosion.update();}
+	   player.image = 'images/explosion.png'
+	 ctx.drawImage(player.image,
+          player.x,
+        	player.y,
+        	explosion.width, explosion.height);}
     
 
 
