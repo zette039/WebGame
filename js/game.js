@@ -66,11 +66,11 @@ var myGameArea = {
 	  e = true;
 	  e.x = player.x;
           e.y = player.y;
-	   player.image = 'images/explosion.png'
-	 ctx.drawImage(player.image,
+	   player.color = 'images/explosion.png';
+	 ctx.drawImage(player.color,
           player.x,
-        	player.y,
-        	explosion.width, explosion.height);
+          player.y,
+          explosion.width, explosion.height);
   }
 }
 var score = new component(0,0,0,0,0,0,1)
