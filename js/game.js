@@ -62,6 +62,7 @@ var myGameArea = {
 	  enemy2 = false;
 	  enemy3 = false;
 	  enemy4 = false;
+	  explosion.update();
   }
 }
 var score = new component(0,0,0,0,0,0,1)
