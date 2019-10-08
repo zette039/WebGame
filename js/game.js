@@ -23,6 +23,7 @@ enemy2 = true;
 enemy3 = true;
 enemy4 = true;
 }
+var explosion = false;
 var player;
 var myScore;
 function startGame() {
@@ -62,7 +63,7 @@ var myGameArea = {
 	  enemy2 = false;
 	  enemy3 = false;
 	  enemy4 = false;
-	  explosion.update();
+	  explosion = true;
 	  explosion.x = player.x;
           explosion.y = player.y;
   }
@@ -195,6 +196,9 @@ if (player.crashWith(e1)) {
 	    score.number += 1;
 	    e4.x = 1000;
 	    e4.y = Math.floor(Math.random() * 250.4) + 1
+    if(explosion == true){
+	    explosion.update();
+    }
     }
  }
 }
