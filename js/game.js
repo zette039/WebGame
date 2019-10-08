@@ -64,8 +64,8 @@ var myGameArea = {
 	  enemy3 = false;
 	  enemy4 = false;
 	  e = true;
-	  explosion.x = player.x;
-          explosion.y = player.y;
+	  e.x = player.x;
+          e.y = player.y;
 	  
   }
 }
@@ -144,16 +144,16 @@ if (player.crashWith(e1)) {
     
 	    if (player.crashWith(e1)) {
 	
-    setTimeout(myGameArea.stop(), 5);
+    setTimeout(myGameArea.stop(), 5);}
     if (player.crashWith(e2)) {
 	    
-    setTimeout(myGameArea.stop(), 5);
+    setTimeout(myGameArea.stop(), 5);}
     if (player.crashWith(e3)) {
 	    
-    setTimeout(myGameArea.stop(), 5);
+    setTimeout(myGameArea.stop(), 5);}
     if (player.crashWith(e4)) {
 	
-    setTimeout(myGameArea.stop(), 5);
+    setTimeout(myGameArea.stop(), 5);}
  } 
  else {
     myGameArea.clear();
