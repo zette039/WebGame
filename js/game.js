@@ -131,16 +131,28 @@ function component(width, height, color, x, y, type, number) {
 
 function updateGameArea() {
 if (player.crashWith(e1)) {
-	explosion.update();
+	explosion.update();}
+   
+    if (player.crashWith(e2)) {
+	    explosion.update();}
+    
+    if (player.crashWith(e3)) {
+	    explosion.update();}
+   
+    if (player.crashWith(e4)) {
+	    explosion.update();}
+    
+	    if (player.crashWith(e1)) {
+	
     myGameArea.stop();}
     if (player.crashWith(e2)) {
-	    explosion.update();
+	    
     myGameArea.stop();}
     if (player.crashWith(e3)) {
-	    explosion.update();
+	    
     myGameArea.stop();}
     if (player.crashWith(e4)) {
-	    explosion.update();
+	
     myGameArea.stop();
  } 
  else {
