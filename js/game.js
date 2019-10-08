@@ -144,16 +144,16 @@ if (player.crashWith(e1)) {
     
 	    if (player.crashWith(e1)) {
 	
-    myGameArea.stop();}
+    setTimeout(myGameArea.stop(), 5);
     if (player.crashWith(e2)) {
 	    
-    myGameArea.stop();}
+    setTimeout(myGameArea.stop(), 5);
     if (player.crashWith(e3)) {
 	    
-    myGameArea.stop();}
+    setTimeout(myGameArea.stop(), 5);
     if (player.crashWith(e4)) {
 	
-    myGameArea.stop();
+    setTimeout(myGameArea.stop(), 5);
  } 
  else {
     myGameArea.clear();
