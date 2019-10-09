@@ -131,8 +131,10 @@ function component(width, height, color, x, y, type, number) {
 
 function updateGameArea() {
 if (player.crashWith(e1)) {
+	 myGameArea.clear();
+         myGameArea.frameNo += 1;
 	 explosion.x = player.x;
-          explosion.y = player.y;
+         explosion.y = player.y;
  	 explosion.update();
 	 setTimeout(myGameArea.stop(), 500);
 	}
