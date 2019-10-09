@@ -156,7 +156,9 @@ if (player.crashWith(e1)) {
 	    
    
  
-    if (e1.x = player.x + 90){
+    if (e1.x = player.x + 95){
+	    explosion.x = player.x;
+	    explosion.y = player.y;
 	    explosion.update();
     }
  else ;{
