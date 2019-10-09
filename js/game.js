@@ -151,7 +151,7 @@ if (player.crashWith(e1)) {
    
  
  
-    }
+    
  else ;{
     myGameArea.clear();
     myGameArea.frameNo += 1;
