@@ -166,8 +166,8 @@ if (player.crashWith(e1)) {
     
     
     
-    if (myGameArea.keys && myGameArea.keys[38] && player.y > 10) {player.speedY = -10; }
-    if (myGameArea.keys && myGameArea.keys[40] && player.y < 250.4) {player.speedY = 10; }
+    if (myGameArea.keys && myGameArea.keys[38] && player.y > 10) {player.speedY = -15; }
+    if (myGameArea.keys && myGameArea.keys[40] && player.y < 250.4) {player.speedY = 15; }
     player.newPos();    
     player.update();
     myScore.text = "SCORE: " + score.number;
