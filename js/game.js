@@ -64,8 +64,8 @@ var myGameArea = {
 	  enemy3 = false;
 	  enemy4 = false;
 	  e = true;
-	  e.x = player.x;
-          e.y = player.y;
+	  explosion.x = player.x;
+          explosion.y = player.y;
 	   player.color = 'images/explosion.png';
 	 ctx.drawImage(player.color,
           player.x,
@@ -135,6 +135,12 @@ function component(width, height, color, x, y, type, number) {
 
 function updateGameArea() {
 if (player.crashWith(e1)) {
+	 explosion.x = player.x;
+          explosion.y = player.y;
+	 ctx.drawImage(explosion.color,
+          player.x,
+          player.y,
+          explosion.width, explosion.height);
 	 setTimeout(myGameArea.stop(), 500);
 	}
    
