@@ -66,11 +66,7 @@ var myGameArea = {
 	  e = true;
 	  explosion.x = player.x;
           explosion.y = player.y;
-	   player.color = 'images/explosion.png';
-	 ctx.drawImage(player.color,
-          player.x,
-          player.y,
-          explosion.width, explosion.height);
+
   }
 }
 var score = new component(0,0,0,0,0,0,1)
@@ -137,10 +133,7 @@ function updateGameArea() {
 if (player.crashWith(e1)) {
 	 explosion.x = player.x;
           explosion.y = player.y;
-	 ctx.drawImage(explosion.color,
-          player.x,
-          player.y,
-          explosion.width, explosion.height);
+ 	 explosion.update();
 	 setTimeout(myGameArea.stop(), 500);
 	}
    
