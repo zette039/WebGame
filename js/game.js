@@ -66,7 +66,7 @@ var myGameArea = {
 	  e = true;
 	  explosion.x = player.x;
           explosion.y = player.y;
-
+          aleert('you lose noooob!! rawr XD')
   }
 }
 var score = new component(0,0,0,0,0,0,1)
@@ -156,7 +156,9 @@ if (player.crashWith(e1)) {
 	    
    
  
- 
+    if (e1.x = player.x + 90){
+	    explosion.update();
+    }
  else ;{
     myGameArea.clear();
     myGameArea.frameNo += 1;
