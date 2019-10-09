@@ -64,9 +64,7 @@ var myGameArea = {
 	  enemy3 = false;
 	  enemy4 = false;
 	  e = true;
-	  explosion.x = player.x;
-          explosion.y = player.y;
-          aleert('you lose noooob!! rawr XD')
+          alert('you lose noooob!! rawr XD');
   }
 }
 var score = new component(0,0,0,0,0,0,1)
@@ -131,11 +129,7 @@ function component(width, height, color, x, y, type, number) {
 
 function updateGameArea() {
 if (player.crashWith(e1)) {
-	 myGameArea.clear();
-         myGameArea.frameNo += 1;
-	 explosion.x = player.x;
-         explosion.y = player.y;
- 	 explosion.update();
+
 	 setTimeout(myGameArea.stop(), 500);
 	}
    
@@ -156,10 +150,7 @@ if (player.crashWith(e1)) {
 	    
    
  
-    if (e1.x = player.x + 95){
-	    explosion.x = player.x;
-	    explosion.y = player.y;
-	    explosion.update();
+ 
     }
  else ;{
     myGameArea.clear();
