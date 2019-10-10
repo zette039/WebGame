@@ -30,12 +30,12 @@ var player;
 var myScore;
 function startGame() {
     myGameArea.start();
-    bullet = new component(10, 10, 'images/bullet.png', 0, 0);
-    player = new component(80, 44.6, 'images/car.png', 10, 130.2);
-    e1 = new component(90, 54.6, "images/enemy.png", 1000, 20);
-    e2 = new component(90, 54.6, "images/enemy.png", 1000, 100 );
-    e3 = new component(90, 54.6, "images/enemy.png", 1000, 200);
-    e4 = new component(90, 54.6, "images/enemy.png", 1000, 250.4);
+    bullet = new component(10, 10, 'images/bullet.png', 0, 0, 'image');
+    player = new component(80, 44.6, 'images/car.png', 10, 130.2, 'image');
+    e1 = new component(90, 54.6, "images/enemy.png", 1000, 20, 'image');
+    e2 = new component(90, 54.6, "images/enemy.png", 1000, 100, 'image' );
+    e3 = new component(90, 54.6, "images/enemy.png", 1000, 200, 'image');
+    e4 = new component(90, 54.6, "images/enemy.png", 1000, 250.4, 'image');
      myScore = new component("20px", "Consolas", "black", 0, 40, "text");
     score.number = 0;
 }
