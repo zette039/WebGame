@@ -2,6 +2,8 @@ var enemy1 = false;
 var enemy2 = false;
 var enemy3 = false;
 var enemy4 = false;
+var bullet;
+var b = false;
 function et1 (){
 enemy1 = true;
 }
@@ -28,12 +30,12 @@ var player;
 var myScore;
 function startGame() {
     myGameArea.start();
-    explosion = new component(200, 180, 'images/explosion.png', 0, 0, 'image');
-    player = new component(80, 44.6, 'images/car.png', 10, 130.2, 'image');
-    e1 = new component(90, 54.6, "images/enemy.png", 1000, 20, 'image' );
-    e2 = new component(90, 54.6, "images/enemy.png", 1000, 100, 'image' );
-    e3 = new component(90, 54.6, "images/enemy.png", 1000, 200, 'image' );
-    e4 = new component(90, 54.6, "images/enemy.png", 1000, 250.4, 'image' );
+    bullet = new component(10, 10, 'images/bullet.png', 0, 0);
+    player = new component(80, 44.6, 'images/car.png', 10, 130.2);
+    e1 = new component(90, 54.6, "images/enemy.png", 1000, 20);
+    e2 = new component(90, 54.6, "images/enemy.png", 1000, 100 );
+    e3 = new component(90, 54.6, "images/enemy.png", 1000, 200);
+    e4 = new component(90, 54.6, "images/enemy.png", 1000, 250.4);
      myScore = new component("20px", "Consolas", "black", 0, 40, "text");
     score.number = 0;
 }
@@ -163,6 +165,40 @@ if (player.crashWith(e1)) {
     
     if (myGameArea.keys && myGameArea.keys[38] && player.y > 10) {player.speedY = -15; }
     if (myGameArea.keys && myGameArea.keys[40] && player.y < 250.4) {player.speedY = 15; }
+    if (myGameArea.keys && myGameArea.keys[32] ) {b = true;
+                                                  bullet.x = player.x + 65;
+                                                  bullet.y = player.y + 22.3;
+                                                  bullet.speedX = 5;}
+    if (bullet.x >= 1010){
+    bullet.speedX = 0;
+    b = false
+    }
+    if(b == true){
+ 
+    bullet.newPos();
+    bullet.update();
+    }
+     if (bullet.crashWith(e1)) {
+	    e1.x = 1000;
+      e1.y = Math.floor(Math.random() * 250.4) + 1;
+      score.number += '.5';
+	  }
+    if (bullet.crashWith(e2)) {
+	    e2.x = 1000;
+      e2.y = Math.floor(Math.random() * 250.4) + 1;
+      score.number += '.5';
+	  }
+    if (bullet.crashWith(e3)) {
+	    e3.x = 1000;
+      e3.y = Math.floor(Math.random() * 250.4) + 1;
+      score.number += '.5';
+	  }
+    if (bullet.crashWith(e4)) {
+	    e4.x = 1000;
+      e4.y = Math.floor(Math.random() * 250.4) + 1;
+      score.number += '.5';
+	  }
+    
     player.newPos();    
     player.update();
     myScore.text = "SCORE: " + score.number;
