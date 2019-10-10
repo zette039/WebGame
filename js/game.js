@@ -181,22 +181,22 @@ if (player.crashWith(e1)) {
      if (bullet.crashWith(e1)) {
 	    e1.x = 1000;
       e1.y = Math.floor(Math.random() * 250.4) + 1;
-      score.number += '.5';
+      score.number += 1/2;
 	  }
     if (bullet.crashWith(e2)) {
 	    e2.x = 1000;
       e2.y = Math.floor(Math.random() * 250.4) + 1;
-      score.number += '.5';
+      score.number += 1/2;
 	  }
     if (bullet.crashWith(e3)) {
 	    e3.x = 1000;
       e3.y = Math.floor(Math.random() * 250.4) + 1;
-      score.number += '.5';
+      score.number += 1/2;
 	  }
     if (bullet.crashWith(e4)) {
 	    e4.x = 1000;
       e4.y = Math.floor(Math.random() * 250.4) + 1;
-      score.number += '.5';
+      score.number += 1/2;
 	  }
     
     player.newPos();    
