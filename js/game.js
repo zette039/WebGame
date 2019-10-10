@@ -168,7 +168,7 @@ if (player.crashWith(e1)) {
     if (myGameArea.keys && myGameArea.keys[32] ) {b = true;
                                                   bullet.x = player.x + 65;
                                                   bullet.y = player.y + 22.3;
-                                                  bullet.speedX = 5;}
+                                                  bullet.speedX = 35;}
     if (bullet.x >= 1010){
     bullet.speedX = 0;
     b = false
