@@ -31,7 +31,7 @@ var myScore;
 function startGame() {
     myGameArea.start();
 
-    player = new component(70, 33, 'images/car.png', 10, 130.2, 'image');
+    player = new component(60, 22, 'images/car.png', 10, 130.2, 'image');
     e1 = new component(90, 54.6, "images/enemy.png", 1000, 20, 'image');
     e2 = new component(90, 54.6, "images/enemy.png", 1000, 100, 'image' );
     e3 = new component(90, 54.6, "images/enemy.png", 1000, 200, 'image');
