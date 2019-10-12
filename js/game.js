@@ -165,7 +165,7 @@ if (player.crashWith(e1)) {
     
     if (myGameArea.keys && myGameArea.keys[38] && player.y > 10) {player.speedY = -15; }
     if (myGameArea.keys && myGameArea.keys[40] && player.y < 250.4) {player.speedY = 15; }
-    if (myGameArea.keys && myGameArea.keys[32] ) {b = true;
+    
                                                   
     
    
