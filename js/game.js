@@ -30,7 +30,7 @@ var player;
 var myScore;
 function startGame() {
     myGameArea.start();
-    bullet = new component(15, 20, 'images/bullet.png', 70, 107.9, 'image');
+
     player = new component(80, 44.6, 'images/car.png', 10, 130.2, 'image');
     e1 = new component(90, 54.6, "images/enemy.png", 1000, 20, 'image');
     e2 = new component(90, 54.6, "images/enemy.png", 1000, 100, 'image' );
@@ -167,38 +167,8 @@ if (player.crashWith(e1)) {
     if (myGameArea.keys && myGameArea.keys[40] && player.y < 250.4) {player.speedY = 15; }
     if (myGameArea.keys && myGameArea.keys[32] ) {b = true;
                                                   
-                                                  bullet.speedX = 35;}
-    if (bullet.x >= 1010){
-    bullet.x = player.x + 65;
-    bullet.y = player.y + 22.3
-    bullet.speedX = 0;
-    b = false
-    }
-    if(b == true){
- 
-    bullet.newPos();
-    bullet.update();
-    }
-     if (bullet.crashWith(e1)) {
-	    e1.x = 1000;
-      e1.y = Math.floor(Math.random() * 250.4) + 1;
-      score.number += 1/2;
-	  }
-    if (bullet.crashWith(e2)) {
-	    e2.x = 1000;
-      e2.y = Math.floor(Math.random() * 250.4) + 1;
-      score.number += 1/2;
-	  }
-    if (bullet.crashWith(e3)) {
-	    e3.x = 1000;
-      e3.y = Math.floor(Math.random() * 250.4) + 1;
-      score.number += 1/2;
-	  }
-    if (bullet.crashWith(e4)) {
-	    e4.x = 1000;
-      e4.y = Math.floor(Math.random() * 250.4) + 1;
-      score.number += 1/2;
-	  }
+    
+   
     
     player.newPos();    
     player.update();
