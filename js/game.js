@@ -1,14 +1,29 @@
-var enemies; //(x,y) has the max (from 1,1) of (1600, 1900)
+//var enemies; //(x,y) has the max (from 1,1) of (1600, 1900)
 var player;
 var myScore;
 var score = new component(0,0,0,0,0,0,1)
 
+var quantE = parseInt(window.prompt("Difficaulty (integer):"));
+var enemies = [];
+for (const x of Array(quantE).keys()) {
+ enemy = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image');
+ enemies.push(enemy);
+}
+myScore = new component("20px", "Consolas", "black", 0, 40, "text");
+player = new component(80, 39.6, 'images/car.png', 10, 130.2, 'image');
+
 function startGame() {
  myGame.resize();
  myGame.start();
- player = new component(80, 39.6, 'images/car.png', 10, 130.2, 'image');
- enemies = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image');
- myScore = new component("20px", "Consolas", "black", 0, 40, "text");
+ //var quantE = parseInt(window.prompt("Difficaulty (integer):"));
+ //player = new component(80, 39.6, 'images/car.png', 10, 130.2, 'image');
+ //enemy = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image');
+ //var enemies = [];
+ //for (const x of Array(quantE).keys()) {
+ // enemy = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image');
+ // enemies.push(enemy);
+ //}
+ //myScore = new component("20px", "Consolas", "black", 0, 40, "text");
  score.number = 0;
 }
 
@@ -25,13 +40,6 @@ var myGame = {
   return [getSizeWidth-10, getSizeHeight-10] //-10 for boarders
  },
  resize : function() {
-    //if (window.innerWidth*16>window.innerHeight*9) {
-    // this.canvas.width = Math.min(window.innerWidth, 16*100);
-   ///  this.canvas.height = 9/16*Math.min(window.innerWidth, 16*100);
-  ///  } else {
-    // this.canvas.width = 16/9*Math.min(window.innerHeight, 9*100); //600;
-    // this.canvas.height = Math.min(window.innerHeight, 9*100); //300;
-   // }
    [this.canvas.width, this.canvas.height] = myGame.getSize()
   },
   start : function() {
@@ -114,29 +122,39 @@ function component(width, height, color, x, y, type, number) {
 
 
 function updateGameArea() {
- if (player.crashWith(enemies)) {
-  myGame.stop();
- } else {
+ // Game updates
+  score.update();
+  myScore.update();
+
   myGame.clear();
   myGame.frameNo += 1;
+  myScore.text = "SCORE: " + score.number;
+  //score.update();
+  //myScore.update();
+ // Player updates
   player.speedX = 0;
-  player.speedY = 0; 
+  player.speedY = 0;
   if (myGame.keys && myGame.keys[37] && player.x > 10) {player.speedX = -5;}
   if (myGame.keys && myGame.keys[39] && player.x < 370) {player.speedX = 5; }
   if (myGame.keys && myGame.keys[38] && player.y > 10) {player.speedY = -5; }
   if (myGame.keys && myGame.keys[40] && player.y < 250.4) {player.speedY = 5; }
-  player.newPos();  
+  player.newPos();
   player.update();
-  myScore.text = "SCORE: " + score.number;
-  score.update();
-  myScore.update();
-  enemies.newPos();
-  enemies.update();
-  enemies.x += -15;
-  if(enemies.x <= -49.6){
-   score.number += 1;
-   enemies.x = 1000;
-   enemies.y = Math.floor(Math.random() * 250.4) + 1
+ // Enemy Updates
+ for (i in enemies) {
+  enemy = enemies[i];
+  //console.log(enemy)
+  if (player.crashWith(enemy)) {
+   console.log("E"); //myGame.stop();
+  } else {
+   enemy.newPos();
+   enemy.update();
+   enemy.x += -15;
+   if(enemy.x <= -49.6){
+    score.number += 1;
+    enemy.x = 1000;
+    enemy.y = Math.floor(Math.random() * 250.4) + 1
+   }
   }
  }
 }
