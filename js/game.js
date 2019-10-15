@@ -6,24 +6,15 @@ var score = new component(0,0,0,0,0,0,1)
 var quantE = parseInt(window.prompt("Difficaulty (integer):"));
 var enemies = [];
 for (const x of Array(quantE).keys()) {
- enemy = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image');
+ enemy = new component(90, 49.6, "images/enemy.png", 1000, Math.floor(Math.random() * 250.4) + 1, 'image');
  enemies.push(enemy);
 }
-myScore = new component("20px", "Consolas", "black", 0, 40, "text");
+score = new component("20px", "Consolas", "black", 0, 40, "text");
 player = new component(80, 39.6, 'images/car.png', 10, 130.2, 'image');
 
 function startGame() {
  myGame.resize();
  myGame.start();
- //var quantE = parseInt(window.prompt("Difficaulty (integer):"));
- //player = new component(80, 39.6, 'images/car.png', 10, 130.2, 'image');
- //enemy = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image');
- //var enemies = [];
- //for (const x of Array(quantE).keys()) {
- // enemy = new component(90, 49.6, "images/enemy.png", 1000, 20, 'image');
- // enemies.push(enemy);
- //}
- //myScore = new component("20px", "Consolas", "black", 0, 40, "text");
  score.number = 0;
 }
 
@@ -117,20 +108,17 @@ function component(width, height, color, x, y, type, number) {
   return crash;
  }
 }
- 
 
 
 
 function updateGameArea() {
  // Game updates
-  score.update();
-  myScore.update();
-
+   //myScore.update();
   myGame.clear();
   myGame.frameNo += 1;
-  myScore.text = "SCORE: " + score.number;
-  //score.update();
-  //myScore.update();
+
+  score.text = "SCORE: " + score.number;
+  score.update();
  // Player updates
   player.speedX = 0;
   player.speedY = 0;
@@ -143,9 +131,8 @@ function updateGameArea() {
  // Enemy Updates
  for (i in enemies) {
   enemy = enemies[i];
-  //console.log(enemy)
   if (player.crashWith(enemy)) {
-   console.log("E"); //myGame.stop();
+   score.number -= 50; //myGame.stop();
   } else {
    enemy.newPos();
    enemy.update();
